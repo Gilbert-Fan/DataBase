@@ -1,0 +1,10 @@
+C:\Users\虎虎\Desktop\Practical Code\C# && Data Base\3.15 练习\3.15 练习\bin\Debug\3.15 练习.exe.config
+C:\Users\虎虎\Desktop\Practical Code\C# && Data Base\3.15 练习\3.15 练习\bin\Debug\3.15 练习.exe
+C:\Users\虎虎\Desktop\Practical Code\C# && Data Base\3.15 练习\3.15 练习\bin\Debug\3.15 练习.pdb
+C:\Users\虎虎\Desktop\Practical Code\C# && Data Base\3.15 练习\3.15 练习\obj\Debug\3.15 练习.csprojResolveAssemblyReference.cache
+C:\Users\虎虎\Desktop\Practical Code\C# && Data Base\3.15 练习\3.15 练习\obj\Debug\_3._15_练习.Form1.resources
+C:\Users\虎虎\Desktop\Practical Code\C# && Data Base\3.15 练习\3.15 练习\obj\Debug\_3._15_练习.Properties.Resources.resources
+C:\Users\虎虎\Desktop\Practical Code\C# && Data Base\3.15 练习\3.15 练习\obj\Debug\3.15 练习.csproj.GenerateResource.cache
+C:\Users\虎虎\Desktop\Practical Code\C# && Data Base\3.15 练习\3.15 练习\obj\Debug\3.15 练习.csproj.CoreCompileInputs.cache
+C:\Users\虎虎\Desktop\Practical Code\C# && Data Base\3.15 练习\3.15 练习\obj\Debug\3.15 练习.exe
+C:\Users\虎虎\Desktop\Practical Code\C# && Data Base\3.15 练习\3.15 练习\obj\Debug\3.15 练习.pdb
