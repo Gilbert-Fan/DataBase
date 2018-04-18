@@ -1,0 +1,18 @@
+//8-2-1
+
+LSGrade(No,Grade)
+A(90-100)	B(80-90)	C(60-80)	D(0-60)
+
+CREATE OR REPLACE PROCEDURE GradeCount(Grade INT,Count INT)
+	AS DECLARE
+		Currentgrade INT;
+		A INT;
+		B INT;
+		C INT;
+		D INT;
+	BEGIN
+		SELECT Grade INTO A FROM LSGrade WHERE Grade >=90 AND Grade<=100;
+		SELECT Grade INTO B FROM LSGrade WHERE Grade >=80 AND Grade<90;
+		SELECT Grade INTO C FROM LSGrade WHERE Grade >=60 AND Grade<80;
+		SELECT Grade INTO D FROM LSGrade WHERE Grade >=0 AND Grade<60;
+	
