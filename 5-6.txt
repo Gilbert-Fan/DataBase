@@ -1,0 +1,23 @@
+//5-6
+
+Staff(Sno,Sname,Sage,Sjob,Ssalary,Dno)
+Depart(Dno,Dname,Dmanager,Dtel)
+
+
+CREATE TABLE Staff
+(Sno CHAR(11) PRIMARY KEY,
+ Sname CHAR(20) NOT NULL,
+ Sage INT CHECK (Sage>=0 AND SageA<=60),
+ Sjob CHAR(20),
+ Ssalary INT,
+ Dno CHAR(11) NOT NULL,
+ FOREIGN KEY (Dno)REFERENCES Depart(Dno)
+);
+
+
+CREATE TABLE Depart
+(Dno CHAR(11) PRIMARY KEY,
+ Dname CHAR(20) NOT NULL,
+ Dmanager CHAR(20),
+ Dtel CHAR(11)
+);

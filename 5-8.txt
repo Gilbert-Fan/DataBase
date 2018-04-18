@@ -1,0 +1,19 @@
+//5-8断言
+
+Male(Mno,Mname)
+Female(Fno,Fname)
+
+CREATE TABLE Male
+(Mno CHAR(11) PRIMARY KEY,
+ Mname CHAR(20)
+);
+
+CREATE TABLE Female
+(Fno CHAR(11) PRIMARY KEY,
+ Fname CHAR(20)
+);
+
+CREATE ASSERTION ASSE_Male_Female_NUM
+	CHECK(50>=(SELECT count(*)
+		FROM Male,Female)
+);
