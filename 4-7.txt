@@ -1,0 +1,38 @@
+//7
+Staff(Sno,Sname,Sage,Sjob,Ssalary,Dno)
+Depart(Dno,Dname,Dmanager,Daddress,Dtel)
+
+//7-1
+GRANT SELECT
+ON TABLE Staff,Depart
+TO Wangming;
+
+//7-2
+GRANT INSERT,DELETE
+ON TABLE Staff,Depart
+TO Liyong;
+
+//7-3
+GRANT SELECT
+ON TABLE Staff
+
+//7-4
+GRANT SELECT,UPDATE(Ssalary)
+ON TABLE Staff
+TO Liuxing;
+
+//7-5
+GRANT UPDATE
+ON Staff,Depart
+TO Zhangxin;
+
+//7-6
+GRANT ALL PRIVILEGES
+ON Staff,Depart
+TO Zhouping
+WITH GRANT OPTION;
+
+//7-7
+GRANT SELECT(Ssalary)
+ON TABLE Staff
+TO Yanglan;

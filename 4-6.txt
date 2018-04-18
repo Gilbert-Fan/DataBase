@@ -1,0 +1,29 @@
+//6
+Student(Sno,Sname,Sage,Ssex,Saddress,Cno)
+Class(Cno,Cname,Cteacher,Cmonitor)
+
+//6-1
+GRANT ALL PRIVILEGES
+ON TABLE Student，Class
+TO U1
+WITH GRANT OPTION;
+
+//6-2
+GRANT SELECT,UPDATE(Saddress)
+ON TABLE Student
+TO U2;
+
+//6-3
+GRANT SELECT
+ON TABLE Class
+TO PUBLIC;
+
+//6-4
+GRANT SELECT,UPDATE
+ON TABLE Student
+TO R1;
+
+//6-5
+GRANT R1
+TO U1
+WITH ADMIN OPTION;

@@ -1,0 +1,33 @@
+//8-1
+REVOKE SELECT
+ON TABLE Staff,Depart
+FROM Wangming;
+
+//8-2
+REVOKE INSERT,DELETE
+ON TABLE Staff,Depart
+FROM Liyong;
+
+//8-3
+REVOKE SELECT
+ON TABLE Staff
+
+//8-4
+REVOKE SELECT,UPDATE(Ssalary)
+ON TABLE Staff
+FROM Liuxing;
+
+//8-5
+REVOKE UPDATE
+ON Staff,Depart
+FROM Zhangxin;
+
+//8-6
+REVOKE ALL PRIVILEGES
+ON Staff,Depart
+FROM Zhouping CASCADE;
+
+//8-7
+REVOKE SELECT(Ssalary)
+ON TABLE Staff
+FROM Yanglan;
