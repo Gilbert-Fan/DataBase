@@ -1,0 +1,150 @@
+--Edit by David @ HeBei University 2018
+
+DROP TABLE IF EXISTS SC
+DROP TABLE IF EXISTS Student
+DROP TABLE IF EXISTS Course
+Drop TABLE IF EXISTS Teacher
+Drop TABLE IF EXISTS Manager
+Drop TABLE IF EXISTS StudentPasswords
+Drop TABLE IF EXISTS TeacherPasswords
+Drop TABLE IF EXISTS ManagerPasswords
+
+CREATE TABLE Student          
+ (	
+ Sno CHAR(9) PRIMARY KEY,        /* 列级完整性约束条件,Sno是主码*/                  
+ Sname CHAR(20) UNIQUE,             /* Sname取唯一值*/
+ Ssex CHAR(2),
+ Sage CHAR(3),
+ Sdept CHAR(20)
+ ); 
+
+CREATE TABLE  Course
+ (	
+ Cno CHAR(4) PRIMARY KEY,
+ Cname CHAR(40),            
+ Cpno CHAR(4),               	                      
+ Ccredit SMALLINT,
+ Tno CHAR(9),
+ Tname CHAR(20),
+ FOREIGN KEY (Cpno) REFERENCES  Course(Cno),
+ FOREIGN KEY (Tno) REFERENCES Teacher(Tno),
+ FOREIGN KEY(Tname) REFERENCES Teacher(Tname)
+ ); 
+
+CREATE TABLE  SC
+ (
+ Sno CHAR(9), 
+ Cno CHAR(4),  
+ Grade SMALLINT,
+ PRIMARY KEY (Sno,Cno),                     /* 主码由两个属性构成，必须作为表级完整性进行定义*/
+ FOREIGN KEY (Sno) REFERENCES Student(Sno),  /* 表级完整性约束条件，Sno是外码，被参照表是Student */
+ FOREIGN KEY (Cno)REFERENCES Course(Cno)     /* 表级完整性约束条件， Cno是外码，被参照表是Course*/
+ ); 
+
+CREATE TABLE Teacher
+(
+Tno Char(9) PRIMARY KEY,
+Tname CHAR(20),
+Tsex CHAR(2),
+Tage CHAR(3),
+Tdept CHAR(20)
+); 
+
+CREATE TABLE Manager
+(
+Mno Char(9) PRIMARY KEY,
+Mname CHAR(20),
+Msex CHAR(3),
+Mage CHAR(3)
+); 
+
+CREATE TABLE StudentPasswords
+(
+Sno CHAR(9),
+Password CHAR(20),
+FOREIGN KEY (Sno) REFERENCES Sno(Student)
+);
+
+CREATE TABLE TeacherPasswords
+(
+Tno CHAR(9),
+Password CHAR(20),
+FOREIGN KEY (Tno) REFERENCES Tno(Teacher)
+);
+
+CREATE TABLE ManagerPasswords
+(
+Mno CHAR(9),
+Password CHAR(20),
+FOREIGN KEY (Mno) REFERENCES Mno(Manager)
+);
+
+
+
+INSERT  INTO  Student (Sno,Sname,Ssex,Sdept,Sage) VALUES ('201215121','李勇','男','CS','20');
+INSERT  INTO  Student (Sno,Sname,Ssex,Sdept,Sage) VALUES ('201215122','刘晨','女','CS','19');
+INSERT  INTO  Student (Sno,Sname,Ssex,Sdept,Sage) VALUES ('201215123','王敏','女','MA','18');
+INSERT  INTO  Student (Sno,Sname,Ssex,Sdept,Sage) VALUES ('201215125','张立','男','IS','19');
+INSERT  INTO  Student (Sno,Sname,Ssex,Sdept,Sage) VALUES ('201215128','陈冬','男','IS','20');
+
+SELECT * FROM Student
+
+INSERT  INTO Course(Cno,Cname,Cpno,Ccredit,Tno,Tname)	VALUES ('1','数据库',NULL,4);
+INSERT  INTO Course(Cno,Cname,Cpno,Ccredit,Tno,Tname)	VALUES ('2','数学',NULL,4);
+INSERT  INTO Course(Cno,Cname,Cpno,Ccredit,Tno,Tname)	VALUES ('3','信息系统',NULL,4);
+INSERT  INTO Course(Cno,Cname,Cpno,Ccredit,Tno,Tname)	VALUES ('4','操作系统',NULL,4);
+INSERT  INTO Course(Cno,Cname,Cpno,Ccredit,Tno,Tname)	VALUES ('5','数据结构',NULL,4);
+INSERT  INTO Course(Cno,Cname,Cpno,Ccredit,Tno,Tname)	VALUES ('6','数据处理',NULL,4);
+INSERT  INTO Course(Cno,Cname,Cpno,Ccredit,Tno,Tname)	VALUES ('7','Pascal语言',NULL,4);
+
+UPDATE Course SET Cpno = '5' WHERE Cno = '1' 
+UPDATE Course SET Cpno = '1' WHERE Cno = '3' 
+UPDATE Course SET Cpno = '6' WHERE Cno = '4' 
+UPDATE Course SET Cpno = '7' WHERE Cno = '5' 
+UPDATE Course SET Cpno = '6' WHERE Cno = '7' 
+
+SELECT * FROM Course
+
+INSERT  INTO SC(Sno,Cno,Grade,Tno,Tname) VALUES ('201215121 ','1',92,'001','张三');
+INSERT  INTO SC(Sno,Cno,Grade,Tno,Tname) VALUES ('201215121 ','2',85,'002','李四');
+INSERT  INTO SC(Sno,Cno,Grade,Tno,Tname) VALUES ('201215121 ','3',88,'003','王五');
+INSERT  INTO SC(Sno,Cno,Grade,Tno,Tname) VALUES ('201215122 ','2',90,'004','赵六');
+INSERT  INTO SC(Sno,Cno,Grade,Tno,Tname) VALUES ('201215122 ','3',80,'005','钱七');
+
+SELECT * FROM SC
+
+INSERT  INTO  Teacher (Tno,Tname,Tsex,Tdept,Tage) VALUES ('001','张三','男','CS','20');
+INSERT  INTO  Teacher (Tno,Tname,Tsex,Tdept,Tage) VALUES ('002','李四','女','MA','21');
+INSERT  INTO  Teacher (Tno,Tname,Tsex,Tdept,Tage) VALUES ('003','王五','男','IS','22');
+INSERT  INTO  Teacher (Tno,Tname,Tsex,Tdept,Tage) VALUES ('004','赵六','女','CS','22');
+INSERT  INTO  Teacher (Tno,Tname,Tsex,Tdept,Tage) VALUES ('005','钱七','男','MA','23');
+INSERT  INTO  Teacher (Tno,Tname,Tsex,Tdept,Tage) VALUES ('006','胡歌','女','CS','24');
+
+SELECT * FROM Teacher
+
+INSERT  INTO  Manager (Mno,Mname,Msex,Mage) VALUES ('101','一号','男','20');
+INSERT  INTO  Manager (Mno,Mname,Msex,Mage) VALUES ('102','二号','男','20');
+INSERT  INTO  Manager (Mno,Mname,Msex,Mage) VALUES ('103','三号','男','20');
+
+SELECT * FROM Manager
+
+INSERT  INTO  StudentPasswords (Sno,Password) VALUES ('201215121','111');
+INSERT  INTO  StudentPasswords (Sno,Password) VALUES ('201215122','111');
+INSERT  INTO  StudentPasswords (Sno,Password) VALUES ('201215123','111');
+INSERT  INTO  StudentPasswords (Sno,Password) VALUES ('201215125','111');
+INSERT  INTO  StudentPasswords (Sno,Password) VALUES ('201215128','111');
+
+SELECT * FROM StudentPasswords
+
+INSERT  INTO  TeacherPasswords (Tno,Password) VALUES ('001','111');
+INSERT  INTO  TeacherPasswords (Tno,Password) VALUES ('002','111');
+INSERT  INTO  TeacherPasswords (Tno,Password) VALUES ('003','111');
+INSERT  INTO  TeacherPasswords (Tno,Password) VALUES ('004','111');
+INSERT  INTO  TeacherPasswords (Tno,Password) VALUES ('005','111');
+
+SELECT * FROM ManagerPasswords
+
+INSERT  INTO  ManagerPasswords (Mno,Password) VALUES ('101','111');
+INSERT  INTO  ManagerPasswords (Mno,Password) VALUES ('102','111');
+
+SELECT * FROM ManagerPasswords
